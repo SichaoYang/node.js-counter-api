@@ -1,5 +1,6 @@
 const http = require('http');
 const url = require('url');
+const port = 12345
 let counter = 0;
 
 http.createServer(function (request, response) {
@@ -12,6 +13,6 @@ http.createServer(function (request, response) {
     response.writeHead(200, {'Content-Type': 'text/plain'});
     response.write('{counter:' + counter.toString() + '}');
     response.end();
-}).listen(8080);
+}).listen(port);
 
-console.log('Server Started..');
+console.log('Listening to port ' + port.toString() + '...');
