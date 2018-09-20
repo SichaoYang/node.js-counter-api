@@ -15,7 +15,7 @@ Parameter `cmd` in the request specifies additional behaviors of the counter.
 ## Example with Browser
 1. Host the server on http://localhost:12345/. The console will print `Listening to port 12345...`
 2. Open http://localhost:12345/. The browser window will display `{counter:0}`.
-3. Open http://localhost:12345/increase. The browser window will display `{counter:1}`.
-4. Open http://localhost:12345/increase. The browser window will display `{counter:2}`.
-5. Open http://localhost:12345/decrease. The browser window will display `{counter:1}`.
-6. Open http://localhost:12345/reset. The browser window will display `{counter:0}`.
+3. Open http://localhost:12345/?cmd=increase. The browser window will display `{counter:1}`.
+4. Open http://localhost:12345/?cmd=increase. The browser window will display `{counter:2}`.
+5. Open http://localhost:12345/?cmd=decrease. The browser window will display `{counter:1}`.
+6. Open http://localhost:12345/?cmd=reset. The browser window will display `{counter:0}`.
