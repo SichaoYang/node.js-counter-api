@@ -4,15 +4,16 @@ const port = 12345
 let counter = 0;
 
 http.createServer(function (request, response) {
-    switch (url.parse(request.url, true).query.cmd) {
+    const query = url.parse(request.url, true).query;
+    switch (query.cmd) {
         case "reset": counter = 0; break;
         case "increase": counter++; break;
         case "decrease": counter--; break;
     }
-
-    response.writeHead(200, {'Content-Type': 'text/plain'});
-    response.write('{counter:' + counter.toString() + '}');
-    response.end();
+    // Cross-Domain-Access with JSONP
+    resstr = "{counter:" + counter.toString() + "}";  // only json can be returned
+    if (query && query.callback) response.end(query.callback + '(' + resstr + ')');  // cross-domain
+    else response.end(resstr);                                                       // plain
 }).listen(port);
 
 console.log('Listening to port ' + port.toString() + '...');

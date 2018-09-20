@@ -12,7 +12,7 @@ Parameter `cmd` in the request specifies additional behaviors of the counter.
 - `cmd=increase` increases the counter by 1
 - `cmd=decrease` decreases the counter by 1
 
-## Example with Browser
+## Local Example with Browser
 1. Host the server on http://localhost:12345/. The console will print `Listening to port 12345...`
 2. Open http://localhost:12345/. The browser window will display `{counter:0}`.
 3. Open http://localhost:12345/?cmd=increase. The browser window will display `{counter:1}`.
