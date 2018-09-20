@@ -11,7 +11,7 @@ http.createServer(function (request, response) {
         case "decrease": counter--; break;
     }
     // Cross-Domain-Access with JSONP
-    resstr = "{counter:" + counter.toString() + "}";  // only json can be returned
+    resstr = "{counter:" + counter.toString() + "}";  // only json is regarded as safe and accessible
     if (query && query.callback) response.end(query.callback + '(' + resstr + ')');  // cross-domain
     else response.end(resstr);                                                       // plain
 }).listen(port);
