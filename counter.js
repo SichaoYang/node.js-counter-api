@@ -10,10 +10,8 @@ http.createServer(function (request, response) {
         case "increase": counter++; break;
         case "decrease": counter--; break;
     }
-    // Cross-Domain-Access with JSONP
-    resstr = "{counter:" + counter.toString() + "}";  // only json is regarded as safe and accessible
-    if (query && query.callback) response.end(query.callback + '(' + resstr + ')');  // cross-domain
-    else response.end(resstr);                                                       // plain
+    response.writeHead(200, {'Access-Control-Allow-Origin':'*'});
+    response.end(counter.toString());
 }).listen(port);
 
 console.log('Listening to port ' + port.toString() + '...');
